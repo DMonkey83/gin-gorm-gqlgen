@@ -1,0 +1,10 @@
+{
+	"name": "Go microservices",
+	"description": "Go with Gin and Gorm",
+	"keywords": [
+		"go",
+		"gin"
+	],
+	"website": "http://go-gin-gorm.herokuapp.com",
+	"repository": "http://git.heroku.com/go-gin-gorm.git"
+}
