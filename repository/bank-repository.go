@@ -1,6 +1,9 @@
+// Package repository ...
 package repository
 
 import (
+	"strconv"
+
 	"github.com/DMonkey83/go-gin-gorm/entity"
 	"github.com/gin-gonic/gin"
 )
@@ -13,7 +16,7 @@ func (db *Database) CreateBank(bank entity.Bank) {
 // UpdateBank ...
 func (db *Database) UpdateBank(id string, bank entity.Bank) {
 	var ctx *gin.Context
-	var bnk entity.Bank //Account
+	var bnk entity.Bank // Bank
 	if err := db.connection.Where("id = ?", ctx.Param(id)).First(&bnk).Error; err != nil {
 		panic("Failed to Find Bank")
 	}
@@ -36,7 +39,7 @@ func (db *Database) DeleteBank(id string) {
 	db.connection.Delete(bank)
 }
 
-// FindBank ...
+// FindBanks ...
 func (db *Database) FindBanks() []entity.Bank {
 	var bank []entity.Bank
 	db.connection.Find(&bank)
@@ -46,8 +49,11 @@ func (db *Database) FindBanks() []entity.Bank {
 // FindBank ...
 func (db *Database) FindBank(id string) entity.Bank {
 	var bank entity.Bank
-	var ctx *gin.Context
-	if err := db.connection.Where("id = ?", ctx.Param(id)).First(&bank).Error; err != nil {
+	ID, error := strconv.ParseUint(id, 10, 32)
+	if error != nil {
+		panic(error)
+	}
+	if err := db.connection.Where("id = ?", ID).First(&bank).Error; err != nil {
 		panic("Failed to Find Bank")
 	}
 	db.connection.First(bank)

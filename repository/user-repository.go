@@ -1,6 +1,9 @@
+// Package repository ...
 package repository
 
 import (
+	"strconv"
+
 	"github.com/DMonkey83/go-gin-gorm/entity"
 	"github.com/gin-gonic/gin"
 )
@@ -46,10 +49,13 @@ func (db *Database) FindUsers() []entity.User {
 // FindUser ...
 func (db *Database) FindUser(id string) entity.User {
 	var user entity.User
-	var ctx *gin.Context
-	if err := db.connection.Where("id = ?", ctx.Param(id)).First(&user).Error; err != nil {
+	ID, error := strconv.ParseUint(id, 10, 32)
+	if error != nil {
+		panic(error)
+	}
+	if err := db.connection.Where("id = ?", ID).First(&user).Error; err != nil {
 		panic("Failed to Find User")
 	}
-	db.connection.Preload("Accounts").Preload("ReceivingPayingParties").First(user)
+	db.connection.Preload("Accounts").Preload("ReceivingPayingParties").First(&user)
 	return user
 }

@@ -1,3 +1,4 @@
+// Package service ...
 package service
 
 import "github.com/DMonkey83/go-gin-gorm/entity"

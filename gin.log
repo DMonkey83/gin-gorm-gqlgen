@@ -9,7 +9,7 @@
 [GIN-debug] PATCH  /api/transactions/:id     --> main.main.func5 (3 handlers)
 [GIN-debug] DELETE /api/transactions/:id     --> main.main.func6 (3 handlers)
 [GIN-debug] GET    /api/accounts             --> main.main.func7 (3 handlers)
-[GIN-debug] GET    /api/account/:id          --> main.main.func8 (3 handlers)
+[GIN-debug] GET    /api/accounts/:id         --> main.main.func8 (3 handlers)
 [GIN-debug] POST   /api/accounts             --> main.main.func9 (3 handlers)
 [GIN-debug] PUT    /api/accounts/:id         --> main.main.func10 (3 handlers)
 [GIN-debug] DELETE /api/accounts/:id         --> main.main.func11 (3 handlers)
@@ -39,5 +39,24 @@
 [GIN-debug] PUT    /api/banks/:id            --> main.main.func35 (3 handlers)
 [GIN-debug] DELETE /api/banks/:id            --> main.main.func36 (3 handlers)
 [GIN-debug] Listening and serving HTTP on :5000
-[GIN-debug] redirecting request 301: /api/accounts --> /api/accounts
-::1 - [13 Aug 22 23:04 BST] GET /api/accounts 200 740.96µs 
+127.0.0.1 - [04 Sep 22 17:10 BST] GET /api/accounts 200 1.221495ms 
+127.0.0.1 - [04 Sep 22 17:10 BST] GET /api/accounts/3 200 2.991702ms 
+127.0.0.1 - [04 Sep 22 17:10 BST] GET /api/accounts/5 200 512.654µs 
+127.0.0.1 - [04 Sep 22 17:10 BST] GET /api/accounts/1 200 452.853µs 
+127.0.0.1 - [04 Sep 22 17:29 BST] OPTIONS /api/accounts 404 111ns 
+127.0.0.1 - [04 Sep 22 17:29 BST] OPTIONS /api/accounts 404 111ns 
+127.0.0.1 - [04 Sep 22 17:29 BST] OPTIONS /api/accounts 404 110ns 
+127.0.0.1 - [04 Sep 22 17:29 BST] OPTIONS /api/accounts 404 130ns 
+127.0.0.1 - [04 Sep 22 17:29 BST] OPTIONS /api/accounts 404 81ns 
+127.0.0.1 - [04 Sep 22 17:29 BST] OPTIONS /api/accounts 404 80ns 
+127.0.0.1 - [04 Sep 22 17:29 BST] OPTIONS /api/accounts 404 131ns 
+127.0.0.1 - [04 Sep 22 17:30 BST] OPTIONS /api/accounts/1 404 80ns 
+127.0.0.1 - [04 Sep 22 17:30 BST] OPTIONS /api/accounts/1 404 80ns 
+127.0.0.1 - [04 Sep 22 17:30 BST] OPTIONS /api/accounts/1 404 80ns 
+127.0.0.1 - [04 Sep 22 17:30 BST] OPTIONS /api/accounts/1 404 120ns 
+127.0.0.1 - [04 Sep 22 17:30 BST] OPTIONS /api/accounts/1 404 110ns 
+127.0.0.1 - [04 Sep 22 17:30 BST] OPTIONS /api/accounts/1 404 181ns 
+127.0.0.1 - [04 Sep 22 17:30 BST] OPTIONS /api/accounts/1 404 110ns 
+127.0.0.1 - [04 Sep 22 17:30 BST] GET /api/accounts 200 610.798µs 
+127.0.0.1 - [04 Sep 22 17:30 BST] GET /api/accounts/1 200 975.207µs 
+127.0.0.1 - [04 Sep 22 17:31 BST] GET /api/accounts/2 200 455.689µs 

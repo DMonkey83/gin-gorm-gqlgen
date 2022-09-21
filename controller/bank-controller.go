@@ -1,3 +1,4 @@
+// Package controller ...
 package controller
 
 import (
@@ -5,18 +6,18 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// FindAccounts ...
+// FindBanks ...
 func (c *Controller) FindBanks() []entity.Bank {
 	return c.service.FindBanks()
 }
 
-// FinBank ...
+// FindBank ...
 func (c *Controller) FindBank(ctx *gin.Context) entity.Bank {
 	id := ctx.Param("id")
 	return c.service.FindBank(id)
 }
 
-// CreateAccount ...
+// CreateBank ...
 func (c *Controller) CreateBank(ctx *gin.Context) error {
 	var bank entity.Bank
 	err := ctx.ShouldBindJSON(&bank)
@@ -28,7 +29,7 @@ func (c *Controller) CreateBank(ctx *gin.Context) error {
 	return nil
 }
 
-// UpdateAccount ...
+// UpdateBank ...
 func (c *Controller) UpdateBank(ctx *gin.Context) error {
 	var bank entity.Bank
 	err := ctx.ShouldBindJSON(&bank)
@@ -41,7 +42,7 @@ func (c *Controller) UpdateBank(ctx *gin.Context) error {
 	return nil
 }
 
-// DeleteAccount ...
+// DeleteBank ...
 func (c *Controller) DeleteBank(ctx *gin.Context) error {
 	id := ctx.Param("id")
 	c.service.DeleteBank(id)

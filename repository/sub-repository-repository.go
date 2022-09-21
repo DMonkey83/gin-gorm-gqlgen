@@ -1,6 +1,9 @@
+// Package repository ...
 package repository
 
 import (
+	"strconv"
+
 	"github.com/DMonkey83/go-gin-gorm/entity"
 	"github.com/gin-gonic/gin"
 )
@@ -46,10 +49,13 @@ func (db *Database) FindSubCategories() []entity.SubCategory {
 // FindSubCategory ...
 func (db *Database) FindSubCategory(id string) entity.SubCategory {
 	var sub entity.SubCategory
-	var ctx *gin.Context
-	if err := db.connection.Where("id = ?", ctx.Param(id)).First(&sub).Error; err != nil {
+	ID, error := strconv.ParseUint(id, 10, 32)
+	if error != nil {
+		panic(error)
+	}
+	if err := db.connection.Where("id = ?", ID).First(&sub).Error; err != nil {
 		panic("Failed to Find SubCategory")
 	}
-	db.connection.First(sub)
+	db.connection.First(&sub)
 	return sub
 }

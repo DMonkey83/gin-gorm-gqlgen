@@ -1,3 +1,4 @@
+// Package controller ...
 package controller
 
 import (
@@ -13,6 +14,7 @@ func (c *Controller) FindUsers() []entity.User {
 // FindUser ...
 func (c *Controller) FindUser(ctx *gin.Context) entity.User {
 	id := ctx.Param("id")
+  println("id: ", id)
 	return c.service.FindUser(id)
 }
 

@@ -1,3 +1,4 @@
+// Package entity ...
 package entity
 
 import (
@@ -42,7 +43,7 @@ type Account struct {
 	AccNumber    string        `json:"acc_number"`
 	SortCode     string        `json:"sort_code"`
 	Transactions []Transaction `json:"transactions" gorm:"foreignkey:AccountID"`
-	Balance      string        `json:"balance"binding:"required" gorm:"type:money"`
+	Balance      string        `json:"balance" binding:"required" gorm:"type:money"`
 	UserID       uint          `json:"user_id"`
 	BankID       uint          `json:"bank_id"`
 }

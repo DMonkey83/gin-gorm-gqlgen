@@ -1,3 +1,4 @@
+// Package main ...
 package main
 
 import (
@@ -91,7 +92,7 @@ func main() {
 			ctx.JSON(200, budgetController.FindAccounts())
 		})
 
-		apiRoutes.GET("/account/:id", func(ctx *gin.Context) {
+		apiRoutes.GET("/accounts/:id", func(ctx *gin.Context) {
 			ctx.JSON(200, budgetController.FindAccount(ctx))
 		})
 
